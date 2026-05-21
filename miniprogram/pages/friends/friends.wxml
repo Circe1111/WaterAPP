@@ -1,0 +1,56 @@
+<view class="container">
+  <view class="tab-bar">
+    <view class="tab-item {{ currentTab === 'friends' ? 'active' : '' }}" bindtap="switchTab" data-tab="friends">好友列表</view>
+    <view class="tab-item {{ currentTab === 'requests' ? 'active' : '' }}" bindtap="switchTab" data-tab="requests">好友申请</view>
+    <view class="tab-item {{ currentTab === 'ranking' ? 'active' : '' }}" bindtap="switchTab" data-tab="ranking">排行榜</view>
+    <view class="tab-item {{ currentTab === 'search' ? 'active' : '' }}" bindtap="switchTab" data-tab="search">添加好友</view>
+  </view>
+
+  <view wx:if="{{ currentTab === 'friends' }}">
+    <view class="card friend-item" wx:for="{{ friends }}" wx:key="id" bindtap="viewFriend" data-id="{{ item.id }}">
+      <image class="friend-avatar" src="{{ item.avatar }}" mode="aspectFill" />
+      <view class="friend-info">
+        <text class="friend-name">{{ item.nickname }}</text>
+        <text class="friend-stats">今日 {{ item.today_amount }}ml</text>
+      </view>
+      <text class="friend-arrow">></text>
+    </view>
+    <view class="empty-tip" wx:if="{{ friends.length === 0 }}">暂无好友</view>
+  </view>
+
+  <view wx:if="{{ currentTab === 'requests' }}">
+    <view class="card" wx:for="{{ requests }}" wx:key="id">
+      <view class="request-info">
+        <text class="request-name">{{ item.user.nickname }}</text>
+        <text class="request-text">请求添加你为好友</text>
+      </view>
+      <button class="btn-accept" size="mini" bindtap="acceptFriend" data-id="{{ item.id }}">接受</button>
+    </view>
+    <view class="empty-tip" wx:if="{{ requests.length === 0 }}">暂无好友申请</view>
+  </view>
+
+  <view wx:if="{{ currentTab === 'ranking' }}">
+    <view class="period-bar">
+      <text class="period-item {{ rankingPeriod === 'day' ? 'active' : '' }}" bindtap="changePeriod" data-period="day">日榜</text>
+      <text class="period-item {{ rankingPeriod === 'week' ? 'active' : '' }}" bindtap="changePeriod" data-period="week">周榜</text>
+      <text class="period-item {{ rankingPeriod === 'month' ? 'active' : '' }}" bindtap="changePeriod" data-period="month">月榜</text>
+    </view>
+    <view class="card rank-item" wx:for="{{ rankings }}" wx:key="id">
+      <text class="rank-num">{{ index + 1 }}</text>
+      <image class="rank-avatar" src="{{ item.avatar }}" mode="aspectFill" />
+      <text class="rank-name">{{ item.nickname }}</text>
+      <text class="rank-amount">{{ item.total }}ml</text>
+    </view>
+  </view>
+
+  <view wx:if="{{ currentTab === 'search' }}">
+    <view class="search-box">
+      <input class="search-input" placeholder="搜索用户昵称" value="{{ searchKeyword }}" bindinput="onSearchInput" />
+      <button class="btn-search" size="mini" bindtap="searchUser">搜索</button>
+    </view>
+    <view class="card" wx:for="{{ searchResults }}" wx:key="id" style="display: flex; justify-content: space-between; align-items: center;">
+      <text>{{ item.nickname }}</text>
+      <button class="btn-add" size="mini" bindtap="addFriend" data-id="{{ item.id }}">添加</button>
+    </view>
+  </view>
+</view>

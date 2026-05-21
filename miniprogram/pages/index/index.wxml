@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="card progress-card">
+    <view class="progress-header">
+      <text class="text-large">{{ todayAmount }}ml</text>
+      <text class="text-secondary">/ {{ dailyGoal }}ml</text>
+    </view>
+    <view class="progress-bar">
+      <view class="progress-fill" style="width: {{ progress }}%"></view>
+    </view>
+    <text class="progress-text">今日完成 {{ progress }}%</text>
+  </view>
+
+  <view class="card cup-list">
+    <text class="section-title">快速记录</text>
+    <view class="cup-grid">
+      <view class="cup-item" wx:for="{{ cups }}" wx:key="amount" bindtap="addWater" data-amount="{{ item.amount }}">
+        <text class="cup-icon">{{ item.icon }}</text>
+        <text class="cup-label">{{ item.label }}</text>
+        <text class="cup-amount">{{ item.amount }}ml</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="section-title">今日记录</text>
+    <view wx:if="{{ todayRecords.length === 0 }}" class="empty-tip">还没有记录哦，快来喝杯水吧</view>
+    <view class="record-list">
+      <view class="record-item" wx:for="{{ todayRecords }}" wx:key="id">
+        <view class="record-left">
+          <text class="record-amount">+{{ item.amount }}ml</text>
+          <text class="record-time">{{ item.created_at }}</text>
+        </view>
+        <view class="record-delete" bindtap="deleteRecord" data-id="{{ item.id }}">删除</view>
+      </view>
+    </view>
+  </view>
+</view>

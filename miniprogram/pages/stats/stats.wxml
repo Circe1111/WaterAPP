@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="period-bar">
+    <text class="period-item {{ period === 'week' ? 'active' : '' }}" bindtap="switchPeriod" data-period="week">本周</text>
+    <text class="period-item {{ period === 'month' ? 'active' : '' }}" bindtap="switchPeriod" data-period="month">本月</text>
+  </view>
+
+  <view class="stats-grid">
+    <view class="stat-card">
+      <text class="stat-value">{{ stats.total }}ml</text>
+      <text class="stat-label">总饮水量</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-value">{{ stats.avg }}ml</text>
+      <text class="stat-label">日均饮水</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-value">{{ stats.max }}ml</text>
+      <text class="stat-label">最高单日</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-value">{{ stats.days }}天</text>
+      <text class="stat-label">达标天数</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="section-title">饮水趋势</text>
+    <canvas canvas-id="waterChart" class="chart-canvas" wx:if="{{ chartData.length > 0 }}"></canvas>
+    <view class="empty-tip" wx:else>暂无数据</view>
+  </view>
+</view>

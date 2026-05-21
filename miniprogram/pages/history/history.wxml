@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="card" wx:for="{{ records }}" wx:key="id">
+    <view class="history-header">
+      <text class="history-date">{{ item.date }}</text>
+      <text class="history-total">{{ item.total }}ml</text>
+    </view>
+    <view class="history-detail">
+      <view class="detail-item" wx:for="{{ item.details }}" wx:key="id" wx:for-item="detail">
+        <text class="detail-time">{{ detail.created_at }}</text>
+        <text class="detail-amount">+{{ detail.amount }}ml</text>
+      </view>
+    </view>
+  </view>
+  <view class="loading-tip" wx:if="{{ hasMore }}">加载中...</view>
+  <view class="empty-tip" wx:if="{{ records.length === 0 }}">暂无记录</view>
+</view>

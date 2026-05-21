@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="card">
+    <text class="section-title">每日目标</text>
+    <view class="goal-row">
+      <input class="goal-input" type="number" value="{{ goalInput }}" bindinput="onGoalInput" />
+      <text class="goal-unit">ml</text>
+      <button class="btn-save" size="mini" bindtap="saveGoal">保存</button>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="section-title">喝水提醒</text>
+    <view class="reminder-switch">
+      <text>开启提醒</text>
+      <switch checked="{{ enableReminder }}" bindchange="toggleReminder" color="#4A90D9" />
+    </view>
+    <view wx:if="{{ enableReminder }}" class="time-grid">
+      <view class="time-item {{ reminders.indexOf(item) > -1 ? 'selected' : '' }}"
+        wx:for="{{ reminderTimes }}" wx:key="*this"
+        bindtap="toggleTime" data-time="{{ item }}">
+        {{ item }}
+      </view>
+    </view>
+    <button wx:if="{{ enableReminder }}" class="btn-save" bindtap="saveReminders">保存提醒</button>
+  </view>
+</view>

@@ -1,0 +1,38 @@
+page {
+  background-color: #f5f6fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.container {
+  padding: 20rpx;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.btn-primary {
+  background: #4A90D9;
+  color: #fff;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  padding: 20rpx 0;
+}
+
+.text-primary {
+  color: #4A90D9;
+}
+
+.text-secondary {
+  color: #999;
+  font-size: 26rpx;
+}
+
+.text-large {
+  font-size: 48rpx;
+  font-weight: bold;
+}
