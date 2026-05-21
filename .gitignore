@@ -22,5 +22,8 @@ Thumbs.db
 # WeChat Mini Program
 miniprogram/node_modules/
 
+# Build scripts
+gen_icons.ps1
+
 # Environment
 .env
