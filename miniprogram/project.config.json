@@ -1,7 +1,8 @@
 {
   "description": "喝水记录小程序",
   "packOptions": {
-    "ignore": []
+    "ignore": [],
+    "include": []
   },
   "setting": {
     "urlCheck": false,
@@ -29,14 +30,24 @@
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "compileWorklet": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true
   },
   "compileType": "miniprogram",
   "libVersion": "3.3.0",
-  "appid": "",
+  "appid": "wx3d15d0068f8fe947",
   "projectname": "WaterAPP",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "condition": {}
+  "condition": {},
+  "simulatorPluginLibVersion": {},
+  "editorSetting": {}
 }

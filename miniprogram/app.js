@@ -1,7 +1,9 @@
 App({
   globalData: {
     userInfo: null,
-    baseUrl: 'http://localhost:8000',
+    // 模拟器调试用 localhost，真机调试改为电脑局域网 IP
+    // ipconfig 查看 WLAN 的 IPv4 地址后替换
+    baseUrl: 'http://10.199.37.212:8000',
     dailyGoal: 2000
   },
 
