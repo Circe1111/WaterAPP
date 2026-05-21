@@ -20,33 +20,23 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "喝水",
-        "iconPath": "images/water.png",
-        "selectedIconPath": "images/water-active.png"
+        "text": "喝水"
       },
       {
         "pagePath": "pages/friends/friends",
-        "text": "好友",
-        "iconPath": "images/friends.png",
-        "selectedIconPath": "images/friends-active.png"
+        "text": "好友"
       },
       {
         "pagePath": "pages/history/history",
-        "text": "记录",
-        "iconPath": "images/history.png",
-        "selectedIconPath": "images/history-active.png"
+        "text": "记录"
       },
       {
         "pagePath": "pages/stats/stats",
-        "text": "统计",
-        "iconPath": "images/stats.png",
-        "selectedIconPath": "images/stats-active.png"
+        "text": "统计"
       },
       {
         "pagePath": "pages/settings/settings",
-        "text": "设置",
-        "iconPath": "images/settings.png",
-        "selectedIconPath": "images/settings-active.png"
+        "text": "设置"
       }
     ]
   },
